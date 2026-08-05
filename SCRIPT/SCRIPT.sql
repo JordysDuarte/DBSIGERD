@@ -601,3 +601,10 @@ FROM [Seguridad].Usuarios AS u
 INNER JOIN [Seguridad].[Roles] AS r
     ON u.idRolUsuario = r.idRol
 WHERE nombreUsuario = 'djduarte';
+
+
+IF COL_LENGTH('Envios.DetalleEnvio', 'observacionesDetalleEnvio') IS NULL
+BEGIN
+    ALTER TABLE Envios.DetalleEnvio
+    ADD observacionesDetalleEnvio VARCHAR(500) NULL;
+END;
